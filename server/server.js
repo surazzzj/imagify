@@ -14,8 +14,9 @@ app.use(express.urlencoded({ extended: true })); // If you're sending form data
 // app.use(cors())
 app.use(cors({
     origin: [
-        "http://localhost:5173", "https://imagifyfinal.netlify.app/"
-    ]
+        "http://localhost:5173", "https://imagifyfinal.netlify.app"
+    ],
+    credentials: true
 }));
 await connectDB()
 
