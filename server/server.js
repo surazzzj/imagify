@@ -12,7 +12,11 @@ const app = express()
 app.use(express.json()); // Add this middleware to parse JSON body
 app.use(express.urlencoded({ extended: true })); // If you're sending form data
 // app.use(cors())
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({
+    origin: [
+        "http://localhost:5173", "https://imagifyfinal.netlify.app/"
+    ]
+}));
 await connectDB()
 
 app.use('/api/user', userRouter)
