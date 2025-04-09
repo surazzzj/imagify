@@ -4,6 +4,11 @@ import jwt from 'jsonwebtoken'
 import razorpay from 'razorpay'
 import transactionModel from "../models/transactionModel.js";
 
+
+console.log("RZP ID:", process.env.RAZORPAY_KEY_ID)
+console.log("RZP SECRET:", process.env.RAZORPAY_KEY_SECRET)
+
+
 const registerUser = async (req, res) => {
     try {
 
@@ -76,12 +81,15 @@ const userCredits = async (req, res) => {
 
 const razorpayInstance = new razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
 })
 
 const paymentRazorpay = async (req, res) => {
     try {
         const { userId, planId } = req.body
+        // const { planId } = req.body;
+        // const userId = req.user.id;
+
         const userData = await userModel.findById(userId)
 
         if (!userId || !planId) {
@@ -155,12 +163,12 @@ const verifyRazorpay = async (req, res) => {
             const userData = await userModel.findById(transactionData.userId)
             const creditBalance = userData.creditBalance + transactionData.credits
 
-            await userModel.findByIdAndUpdate(userData._id, {creditBalance})
-            await transactionModel.findByIdAndUpdate(transactionData._id, {payment:true})
+            await userModel.findByIdAndUpdate(userData._id, { creditBalance })
+            await transactionModel.findByIdAndUpdate(transactionData._id, { payment: true })
 
-            res.json({success:true, message:'Credits Added'})
-        }else{
-            res.json({success:false, message:'Payment Failed'})
+            res.json({ success: true, message: 'Credits Added' })
+        } else {
+            res.json({ success: false, message: 'Payment Failed' })
         }
 
     } catch (error) {
