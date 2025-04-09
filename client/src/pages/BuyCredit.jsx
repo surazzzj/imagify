@@ -13,6 +13,7 @@ const BuyCredit = () => {
   const navigate = useNavigate()
 
   const initPay = async (order) => {
+    console.log("Razorpay Order Created:", order);
 
     const options = {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -49,8 +50,11 @@ const BuyCredit = () => {
         setShowLogin(true)
       }
 
-      const { data } = await axios.post(backendUrl + '/api/user/pay-razor', { planId }, { headers: { token } })
+      const { data } = await axios.post(backendUrl + '/api/user/pay-razor', { planId}, { headers: { token } })
+      console.log("pay-razor response", data);
+
       if (data.success) {
+        console.log("Calling initPay");
         initPay(data.order)
       }
 
