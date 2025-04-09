@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true })); // If you're sending form data
 // app.use(cors())
 app.use(cors({
     origin: [
-        "http://localhost:5173", "https://finalimagify.netlify.app/"
+        "http://localhost:5173", "https://finalimagify.netlify.app"
     ],
     credentials: true
 }));
