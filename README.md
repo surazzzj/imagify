@@ -15,7 +15,7 @@
 - **Frontend**: React.js, Tailwind CSS, Axios
 - **Backend**: Node.js, Express.js, MongoDB
 - **Authentication**: JWT, bcrypt
-- **AI Integration**: [DALL·E / Stable Diffusion / OpenAI Image API] *(replace with actual API used)*
+- **AI Integration**: Clipboard AI
 - **Payments**: Stripe for credit-based top-up
 
 ---
