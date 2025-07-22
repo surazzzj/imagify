@@ -16,7 +16,7 @@
 - **Backend**: Node.js, Express.js, MongoDB
 - **Authentication**: JWT, bcrypt
 - **AI Integration**: Clipboard AI
-- **Payments**: Stripe for credit-based top-up
+- **Payments**: Razorpay for credit-based top-up
 
 ---
 
