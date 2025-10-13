@@ -11,18 +11,21 @@ const app = express()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors())
+
 app.use(
     cors({
         origin: [
             "https://finalimagify.netlify.app",
+            /\.netlify\.app$/,  // allows all Netlify preview URLs
             "http://localhost:5173" // for local development
         ],
-        methods: ["GET", "POST", "PUT", "DELETE"],
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ['Content-Type', 'Authorization', 'token'],
         credentials: true
     })
 );
+app.options("*", cors());
+
 await connectDB()
 
 app.use('/api/user', userRouter)
