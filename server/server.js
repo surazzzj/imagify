@@ -9,18 +9,19 @@ import imageRouter from './routes/imageRoutes.js'
 const PORT = process.env.PORT || 4000
 const app = express()
 
-app.use(express.json()); 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(cors())
 app.use(
-  cors({
-    origin: [
-      "https://finalimagify.netlify.app", 
-      "http://localhost:5173" // for local development
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  })
+    cors({
+        origin: [
+            "https://finalimagify.netlify.app",
+            "http://localhost:5173" // for local development
+        ],
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+        credentials: true
+    })
 );
 await connectDB()
 
