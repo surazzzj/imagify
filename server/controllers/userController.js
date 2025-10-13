@@ -4,11 +4,6 @@ import jwt from 'jsonwebtoken'
 import razorpay from 'razorpay'
 import transactionModel from "../models/transactionModel.js";
 
-
-console.log("RZP ID:", process.env.RAZORPAY_KEY_ID)
-console.log("RZP SECRET:", process.env.RAZORPAY_KEY_SECRET)
-
-
 const registerUser = async (req, res) => {
     try {
 
@@ -43,7 +38,7 @@ const loginUser = async (req, res) => {
     try {
 
         const { email, password } = req.body
-
+        console.log("email ", email, "password", password);
         const user = await userModel.findOne({ email })
         if (!user) {
             return res.json({ success: false, message: 'User does not exist' })
@@ -177,3 +172,10 @@ const verifyRazorpay = async (req, res) => {
 }
 
 export { registerUser, loginUser, userCredits, paymentRazorpay, verifyRazorpay }
+
+
+
+
+
+
+

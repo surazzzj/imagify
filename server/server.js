@@ -14,11 +14,12 @@ app.use(express.urlencoded({ extended: true })); // If you're sending form data
 // app.use(cors())
 app.use(cors({
     origin: [
-        "http://localhost:5173", "https://finalimagify.netlify.app"
+        "http://localhost:5173"
     ],
     credentials: true
 }));
 await connectDB()
+//"https://finalimagify.netlify.app"
 
 app.use('/api/user', userRouter)
 app.use('/api/image', imageRouter)
