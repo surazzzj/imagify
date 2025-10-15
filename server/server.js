@@ -14,11 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
     cors({
-        origin: [
-            "https://finalimagify.netlify.app",
-            /\.netlify\.app$/,  // allows all Netlify preview URLs
-            "http://localhost:5173" // for local development
-        ],
+        // origin: [
+        //     "https://finalimagify.netlify.app",
+        //     "http://localhost:5173" // for local development
+        // ],
+        origin: true,
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ['Content-Type', 'Authorization', 'token'],
         credentials: true
