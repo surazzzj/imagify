@@ -14,11 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
     cors({
-        // origin: [
-        //     "https://finalimagify.netlify.app",
-        //     "http://localhost:5173" // for local development
-        // ],
-        origin: true,
+        origin: [
+            "https://finalimagify.netlify.app",
+            "http://localhost:5173" // for local development
+        ],
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ['Content-Type', 'Authorization', 'token'],
         credentials: true
@@ -34,12 +33,12 @@ app.get('/', (req, res) => {
     res.send("API working")
 })
 
-app.all('/*', (req, res) => {
+app.use((req, res) => {
     res.status(404).json({ message: 'Route not found' });
 });
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 
 
-// user - suraj@gmail.com, 123456
