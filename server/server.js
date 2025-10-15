@@ -23,7 +23,6 @@ app.use(
         credentials: true
     })
 );
-app.options("*", cors());
 
 await connectDB()
 
