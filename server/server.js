@@ -18,7 +18,6 @@ app.use(
             "https://finalimagify.netlify.app",
             "http://localhost:5173" // for local development
         ],
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ['Content-Type', 'Authorization', 'token'],
         credentials: true
     })
@@ -31,11 +30,6 @@ app.use('/api/image', imageRouter)
 app.get('/', (req, res) => {
     res.send("API working")
 })
-
-app.use((req, res) => {
-    res.status(404).json({ message: 'Route not found' });
-});
-
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
