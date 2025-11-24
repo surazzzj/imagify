@@ -27,7 +27,6 @@
 - 💳 Payment system to purchase credits
 - 🧾 Credit deduction per image generation
 - 📸 View and download generated images
-- 🌙 Responsive & sleek dark-themed UI
 
 ---
 
