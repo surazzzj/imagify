@@ -12,7 +12,7 @@
 
 ## ⚙️ Tech Stack
 
-- **Frontend**: React.js, Tailwind CSS, Axios
+- **Frontend**: React.Js, Tailwind CSS, Axios
 - **Backend**: Node.js, Express.js, MongoDB
 - **Authentication**: JWT, bcrypt
 - **AI Integration**: Clipboard AI
